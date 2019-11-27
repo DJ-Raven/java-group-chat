@@ -8,8 +8,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.net.ConnectException;
 import java.net.UnknownHostException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
@@ -181,15 +179,9 @@ public class Login extends javax.swing.JFrame {
                         System.err.println("have");
                     }
                     String userName = txtUser.getText().trim();
-                    Registry re = LocateRegistry.getRegistry(IP, 5001);
-                    rmi.Method rmi = (rmi.Method) re.lookup("raven");
-                    if (rmi.checkName(userName)) {
-                        Method.connect(profile_pic, userName, IP);
-                        this.dispose();
-                        Main.main(null);
-                    } else {
-                        showStatus("User name has already");
-                    }
+                    Method.connect(profile_pic, userName, IP);
+                    this.dispose();
+                    Main.main(null);
                 }
 
             }

@@ -2,14 +2,10 @@ package main;
 
 import function.Client;
 import function.Method;
-import function.RemoteMethod;
 import java.awt.Color;
 import java.io.File;
 import java.net.ServerSocket;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.util.ArrayList;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
@@ -103,8 +99,6 @@ public class Main extends javax.swing.JFrame {
             public void run() {
                 try {
                     server = new ServerSocket(5000);
-                    Registry registry = LocateRegistry.createRegistry(5001);
-                    registry.bind("raven", new RemoteMethod());
                     lbStatus.setForeground(Color.GREEN);
                     Method.setTxt(txt);
                     txt.setText("Server now Starting ...\n");
