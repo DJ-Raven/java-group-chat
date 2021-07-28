@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 
 public class Message implements Serializable {
 
+    private static final long serialVersionUID = 1234L;
     private String status;
     private int ID;
     private String name;
